@@ -26,6 +26,9 @@ object Main extends App {
 
   import TerrainType._
 
+  // Initialize Random with a seed
+  val random = new Random(System.currentTimeMillis())
+
   // Helper Functions
   // Generate a heightmap using the midpoint displacement algorithm
   // Generate a heightmap using the midpoint displacement algorithm
@@ -36,10 +39,10 @@ object Main extends App {
       (Random.nextDouble() - 0.5) * size * roughness
 
     // Initialize the four corners
-    terrain(0)(0) = Random.nextDouble() * MAX_LAND_HEIGHT
-    terrain(0)(size - 1) = Random.nextDouble() * MAX_LAND_HEIGHT
-    terrain(size - 1)(0) = Random.nextDouble() * MAX_LAND_HEIGHT
-    terrain(size - 1)(size - 1) = Random.nextDouble() * MAX_LAND_HEIGHT
+    terrain(0)(0) = random.nextDouble() * MAX_LAND_HEIGHT
+    terrain(0)(size - 1) = random.nextDouble() * MAX_LAND_HEIGHT
+    terrain(size - 1)(0) = random.nextDouble() * MAX_LAND_HEIGHT
+    terrain(size - 1)(size - 1) = random.nextDouble() * MAX_LAND_HEIGHT
 
     // Midpoint displacement recursive function
     def divide(size: Int): Unit = {
